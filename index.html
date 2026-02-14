@@ -3,70 +3,98 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Dragon | المنصة المتكاملة</title>
+    <title>AI DRAGON | القوة المدمجة</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        body { background-color: #050505; color: white; font-family: system-ui, -apple-system, sans-serif; overflow: hidden; }
-        .sidebar { background-color: #0d0d0d; width: 260px; transition: 0.3s; }
-        .chat-input { background-color: #1a1a1a; border: 1px solid rgba(255,255,255,0.1); border-radius: 20px; }
-        .model-btn { padding: 8px 16px; border-radius: 12px; font-size: 14px; font-weight: bold; transition: 0.3s; }
-        .active-model { background-color: #2563eb; box-shadow: 0 0 15px rgba(37, 99, 235, 0.4); }
-        .premium-card { background: linear-gradient(135deg, rgba(37,99,235,0.1) 0%, rgba(139,92,246,0.1) 100%); border: 1px solid rgba(59,130,246,0.2); }
+        body { background-color: #020202; color: white; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; overflow: hidden; }
+        
+        /* تأثير وهج التنين */
+        .dragon-glow {
+            box-shadow: 0 0 50px rgba(59, 130, 246, 0.1);
+            border: 1px solid rgba(59, 130, 246, 0.2);
+        }
+
+        /* خلفية متحركة تعبر عن الدمج */
+        .fusion-bg {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;
+            background: radial-gradient(circle at 50% 50%, #050505 0%, #000 100%);
+        }
+
+        .fusion-core {
+            background: linear-gradient(145deg, rgba(20, 20, 20, 0.9), rgba(5, 5, 5, 0.9));
+            backdrop-filter: blur(20px);
+        }
+
+        /* أنيميشن لنبض التنين */
+        @keyframes pulse-dragon {
+            0% { transform: scale(1); opacity: 0.8; }
+            50% { transform: scale(1.05); opacity: 1; }
+            100% { transform: scale(1); opacity: 0.8; }
+        }
+        .dragon-status { animation: pulse-dragon 3s infinite; }
     </style>
 </head>
 <body>
+    <div class="fusion-bg"></div>
 
     <div id="root" class="flex h-screen w-full">
-        <aside class="sidebar h-full flex flex-col p-4 border-l border-white/5">
-            <button class="w-full p-3 border border-white/10 rounded-xl hover:bg-white/5 transition flex items-center justify-center gap-2 mb-6">
-                <i class="fas fa-plus text-xs"></i> محادثة جديدة
-            </button>
-            
-            <div class="flex-1 overflow-y-auto space-y-2">
-                <div class="p-3 bg-white/5 rounded-lg text-sm border-r-4 border-blue-500">مشروع التنين الذكي 🐉</div>
+        <aside class="w-20 md:w-64 bg-black/50 border-l border-white/5 flex flex-col p-4 transition-all">
+            <div class="flex items-center gap-3 mb-10 px-2">
+                <div class="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center shadow-lg shadow-blue-500/50">
+                    <i class="fas fa-dragon text-white"></i>
+                </div>
+                <span class="font-black tracking-tighter hidden md:block text-xl">AI DRAGON</span>
             </div>
+            
+            <nav class="flex-1 space-y-4">
+                <div class="p-3 bg-white/5 rounded-xl border border-white/10 text-xs md:text-sm cursor-pointer hover:bg-white/10 transition">
+                    <i class="fas fa-bolt text-blue-500 ml-2"></i> الاندماج النشط
+                </div>
+            </nav>
 
-            <div class="premium-card p-4 rounded-2xl mt-auto">
-                <p class="text-xs font-bold text-blue-400 mb-1">AI Dragon Premium</p>
-                <p class="text-[10px] text-gray-500 mb-3">وصول غير محدود لـ GPT-4 و DeepSeek</p>
-                <button class="w-full py-2 bg-blue-600 rounded-lg text-xs font-bold hover:bg-blue-700 transition">ترقية الآن</button>
+            <div class="bg-gradient-to-t from-blue-900/20 to-transparent p-4 rounded-2xl border border-blue-500/20 mt-auto">
+                <p class="text-[10px] text-blue-400 font-bold mb-2 uppercase">الحالة: ملكي</p>
+                <button class="w-full py-2 bg-blue-600 text-[10px] font-black rounded-lg hover:bg-blue-500 transition">تطوير القوة</button>
             </div>
         </aside>
 
-        <main class="flex-1 flex flex-col">
-            <header class="p-4 flex justify-between items-center border-b border-white/5">
-                <div class="flex bg-[#111] p-1 rounded-xl">
-                    <button class="model-btn active-model text-white">Gemini</button>
-                    <button class="model-btn text-gray-500 hover:text-white">ChatGPT</button>
-                    <button class="model-btn text-gray-500 hover:text-white">DeepSeek</button>
-                </div>
-                <div class="w-10 h-10 bg-gradient-to-tr from-blue-600 to-purple-600 rounded-full flex items-center justify-center font-bold">KG</div>
-            </header>
-
-            <div class="flex-1 overflow-y-auto p-6 flex flex-col items-center">
-                <div class="w-full max-w-3xl space-y-8 mt-20">
-                    <div class="flex gap-4">
-                        <div class="w-8 h-8 rounded bg-blue-600/20 flex items-center justify-center text-blue-500 mt-1">
-                            <i class="fas fa-robot"></i>
-                        </div>
-                        <div class="space-y-2">
-                            <p class="font-bold text-xs text-gray-500">AI DRAGON</p>
-                            <p class="text-gray-200 leading-relaxed">أهلاً بك! لقد قمنا بتحديث الواجهة لتشمل محركات Gemini و DeepSeek. كيف يمكنني مساعدتك اليوم؟</p>
-                        </div>
+        <main class="flex-1 flex flex-col items-center">
+            <header class="w-full p-6 flex justify-between items-center">
+                <div class="flex items-center gap-4">
+                    <div class="dragon-status px-4 py-1 bg-green-500/10 border border-green-500/20 rounded-full text-[10px] text-green-500 font-bold">
+                        FUSION: ONLINE
                     </div>
                 </div>
-            </div>
+                <div class="flex gap-6 text-[10px] text-gray-500 font-mono hidden md:flex">
+                    <span>GPT-4o INTERFACE</span>
+                    <span>GEMINI LOGIC</span>
+                    <span>DEEPSEEK SPEED</span>
+                </div>
+            </header>
 
-            <div class="p-6 flex justify-center">
-                <div class="w-full max-w-3xl relative">
-                    <textarea class="chat-input w-full p-4 pr-6 pl-12 text-white outline-none focus:border-blue-500/50 transition-all resize-none" placeholder="اسأل التنين عن أي شيء..." rows="1"></textarea>
-                    <button class="absolute left-3 top-1/2 -translate-y-1/2 w-8 h-8 bg-white text-black rounded-full flex items-center justify-center hover:bg-gray-200 transition">
-                        <i class="fas fa-arrow-up"></i>
-                    </button>
+            <div class="flex-1 w-full max-w-4xl overflow-y-auto px-6 py-10 space-y-10">
+                <div class="flex flex-col items-center justify-center h-full space-y-6 opacity-40">
+                    <i class="fas fa-dragon text-6xl text-blue-600"></i>
+                    <h2 class="text-2xl font-light tracking-[0.3em]">AI DRAGON CORE</h2>
                 </div>
             </div>
-            <p class="text-center text-[10px] text-gray-700 pb-4">نظام متطور مدمج بتقنيات GPT-4o و Gemini 1.5 Pro</p>
+
+            <div class="w-full max-w-4xl p-6 mb-4">
+                <div class="dragon-glow fusion-core rounded-3xl p-2 flex items-end gap-2 pr-4 shadow-2xl">
+                    <textarea 
+                        class="flex-1 bg-transparent border-none p-4 text-white outline-none resize-none placeholder:text-gray-600 text-sm" 
+                        placeholder="أعطِ أمراً للتنين المدمج..." 
+                        rows="1"
+                    ></textarea>
+                    <button class="w-12 h-12 bg-white text-black rounded-2xl flex items-center justify-center hover:bg-gray-200 transition-all mb-1 shadow-lg active:scale-90">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </div>
+                <p class="text-center text-[9px] text-gray-700 mt-4 tracking-widest uppercase">
+                    هذا المحرك يدمج بيانات Gemini و ChatGPT و DeepSeek في مخرج عصبي واحد
+                </p>
+            </div>
         </main>
     </div>
 
